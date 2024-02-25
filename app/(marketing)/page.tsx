@@ -23,10 +23,10 @@ function MarketingPage() {
   return (
     <div className="h-full flex flex-col">
       <Header />
-      <main className="flex flex-col md:w-2/3 w-full mx-auto items-center justify-center gap-12 h-full">
+      <main className="flex flex-col md:w-2/3 w-full mx-auto items-center justify-center gap-12 h-full px-4 md:px-0">
         <div
           className={cn(
-            "flex w-full items-center justify-evenly text-md font-light",
+            "flex w-full items-center justify-evenly md:text-md text-sm font-light",
             poppins.className
           )}
         >
@@ -53,7 +53,7 @@ function MarketingPage() {
         </h1>
         <p
           className={cn(
-            "text-center md:w-2/3 text-md tracking-wide font-light",
+            "text-center md:w-2/3 md:text-md text-sm tracking-wide font-light",
             poppins.className
           )}
         >
