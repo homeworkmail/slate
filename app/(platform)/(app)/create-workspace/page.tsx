@@ -29,8 +29,10 @@ function CreateWorkspacePage() {
 
   return (
     <div className="h-full flex items-center justify-center">
-      <div className="p-6 border-700 border-[1px] rounded-md shadow-md space-y-6">
-        <h1 className="text-3xl font-bold text-zinc-300">Create Workspace</h1>
+      <div className="p-8 border-700 border-[1px] rounded-lg shadow-md space-y-6 md:w-1/3 w-4/5">
+        <h1 className="md:text-3xl text-xl font-bold dark:text-zinc-300 text-zinc-700">
+          Create Workspace
+        </h1>
         <form action={submit} className="space-y-6">
           <FormInput
             errors={fieldErrors}

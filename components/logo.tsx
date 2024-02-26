@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -8,11 +9,13 @@ const poppins = Poppins({
 
 export const Logo = () => {
   return (
-    <div className="flex items-center gap-2">
-      <div className="border-[1px] border-black dark:border-white w-8 h-8 rounded-md p-[6px]">
-        <div className="bg-black dark:bg-white w-[6px] h-[6px] rounded-full" />
+    <Link href="/">
+      <div className="flex items-center gap-2">
+        <div className="border-[1px] border-black dark:border-white w-8 h-8 rounded-md p-[6px]">
+          <div className="bg-black dark:bg-white w-[6px] h-[6px] rounded-full" />
+        </div>
+        <h1 className={cn("text-xl font-medium", poppins.className)}>Slate</h1>
       </div>
-      <h1 className={cn("text-xl font-medium", poppins.className)}>Slate</h1>
-    </div>
+    </Link>
   );
 };

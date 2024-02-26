@@ -17,7 +17,9 @@ async function AppPage() {
   });
 
   if (workspaces.length === 0) {
-    return redirect("/create-workspace");
+    redirect("/create-workspace");
+  } else {
+    redirect(`/app/${workspaces[0].id}`);
   }
 
   return <></>;
