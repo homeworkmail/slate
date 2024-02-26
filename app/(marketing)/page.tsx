@@ -1,6 +1,3 @@
-"use client";
-
-import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import { Playfair_Display } from "next/font/google";
 import { Poppins } from "next/font/google";
@@ -8,6 +5,8 @@ import React from "react";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { auth } from "@clerk/nextjs";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -20,10 +19,14 @@ const poppins = Poppins({
 });
 
 function MarketingPage() {
+  const { userId } = auth();
+
+  const hasUser = !!userId;
+
   return (
     <div className="h-full flex flex-col">
-      <Header />
-      <main className="flex flex-col md:w-2/3 w-full mx-auto items-center justify-center gap-12 h-full px-4 md:px-0">
+      <Header hasUser={hasUser} />
+      <main className="flex flex-col md:w-2/3 max-w-[1204px] mx-auto items-center justify-center gap-12 h-full px-4 md:px-0">
         <div
           className={cn(
             "flex w-full items-center justify-evenly md:text-md text-sm font-light",
@@ -61,7 +64,15 @@ function MarketingPage() {
           seamlessly blending journaling simplicity with powerful academic
           note-taking functionality.
         </p>
-        <Button size="lg">Get started</Button>
+        {hasUser ? (
+          <Link href="/app">
+            <Button size="lg">Go to app</Button>
+          </Link>
+        ) : (
+          <Link href="/register">
+            <Button size="lg">Get started</Button>
+          </Link>
+        )}
       </main>
       <Footer />
     </div>
