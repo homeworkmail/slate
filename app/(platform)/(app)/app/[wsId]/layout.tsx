@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "./_components/navbar";
+import { Guide } from "./_components/guide";
 
 function WorkspaceIdLayout({
   children,
@@ -11,6 +12,7 @@ function WorkspaceIdLayout({
   return (
     <div>
       <Navbar wsId={wsId} />
+      <Guide />
       {children}
     </div>
   );

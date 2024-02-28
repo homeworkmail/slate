@@ -46,6 +46,9 @@ export const WorkspaceSwitcher = async ({ wsId }: WorkspaceSwitcherProps) => {
           <div className="flex items-center">
             <Layers2 className="h-4 w-4 mr-2" />
             <p className="text-sm">{currentWorkspace.name}</p>
+            <span className="text-xs ml-2 bg-zinc-200 dark:bg-zinc-700 p-[1px] px-1 rounded-md">
+              Free
+            </span>
           </div>
           <ChevronsLeftRight className="h-4 w-4 rotate-90" />
         </div>
@@ -54,7 +57,7 @@ export const WorkspaceSwitcher = async ({ wsId }: WorkspaceSwitcherProps) => {
         <DropdownMenuLabel>Workspaces</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {workspaces.map((ws) => (
-          <Link href={ws.id} key={ws.id}>
+          <Link href={`/app/${ws.id}`} key={ws.id}>
             <DropdownMenuItem className="cursor-pointer flex items-center">
               <Layers2 className="h-4 w-4 mr-2" />
               <p>{ws.name}</p>
