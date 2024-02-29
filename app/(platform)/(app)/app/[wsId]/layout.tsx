@@ -11,8 +11,8 @@ function WorkspaceIdLayout({
 }) {
   return (
     <div>
-      <Navbar wsId={wsId} />
       <Guide />
+      <Navbar wsId={wsId} />
       {children}
     </div>
   );

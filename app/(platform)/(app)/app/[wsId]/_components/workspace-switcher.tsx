@@ -46,7 +46,7 @@ export const WorkspaceSwitcher = async ({ wsId }: WorkspaceSwitcherProps) => {
           <div className="flex items-center">
             <Layers2 className="h-4 w-4 mr-2" />
             <p className="text-sm">{currentWorkspace.name}</p>
-            <span className="text-xs ml-2 bg-zinc-200 dark:bg-zinc-700 p-[1px] px-1 rounded-md">
+            <span className="text-xs ml-2 bg-zinc-100 dark:bg-zinc-800 p-[1px] px-1 rounded-md">
               Free
             </span>
           </div>
