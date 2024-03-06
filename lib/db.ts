@@ -15,4 +15,4 @@ if (process.env.NODE_ENV === "production") {
   db = global.prisma;
 }
 
-export default db;
+export { db };
