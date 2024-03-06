@@ -60,6 +60,7 @@ export const TableForm = ({
         <TableBody>
           {data.map((row) => (
             <TableRoww
+              key={row.id}
               disabled={disabled}
               row={row}
               setData={setData}
