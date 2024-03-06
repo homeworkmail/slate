@@ -43,9 +43,9 @@ function CreateWorkspacePage() {
             placeholder="Enter title..."
             label="Title"
           />
-          <div>
+          <div className="flex items-center gap-4">
             <FormSubmit disabled={isLoading}>Create workspace</FormSubmit>
-            {isLoading && <Loader2 />}
+            {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
           </div>
         </form>
       </div>

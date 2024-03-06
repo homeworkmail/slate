@@ -12,9 +12,7 @@ function Header({ hasUser }: HeaderProps) {
   return (
     <div className="fixed top-0 w-full border-b-[1px] border-zinc-300 dark:border-zinc-700 flex items-center justify-center">
       <div className="w-4/5 max-w-[1204px] p-4 flex items-center justify-between">
-        <Link href="/">
-          <Logo />
-        </Link>
+        <Logo />
         <div className="flex items-center justify-center gap-2">
           <ModeToggle />
           {hasUser ? (

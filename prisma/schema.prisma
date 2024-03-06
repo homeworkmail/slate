@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum SlipType {
+  BOOK
+  THOUGHT
+  MEDIA
+}
+
 model Workspace {
   id     String @id @default(uuid())
   name   String
@@ -14,12 +20,21 @@ model Workspace {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Slip      Slip[]
 }
 
-model Notes {
-  id    String @id @default(uuid())
-  title String
+model Slip {
+  id        String   @id @default(uuid())
+  title     String?
+  content   String   @db.Text
+  reference String?  @db.Text
+  type      SlipType
+
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([workspaceId])
 }

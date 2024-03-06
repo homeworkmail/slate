@@ -22,7 +22,7 @@ async function AppPage() {
     redirect(`/app/${workspaces[0].id}`);
   }
 
-  return <></>;
+  return <></>; 
 }
 
 export default AppPage;

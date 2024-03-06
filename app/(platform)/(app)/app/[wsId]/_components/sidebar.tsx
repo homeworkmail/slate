@@ -1,29 +1,14 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { Clock, Coins, Layers, Scroll, Search, Settings } from "lucide-react";
+import { Layers, Scroll, Settings } from "lucide-react";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 
 const sidebarOptions = [
   {
-    title: "Search",
-    href: "search",
-    icon: <Search className="h-4 w-4 mr-2" />,
-  },
-  {
     title: "Notes",
     href: "notes",
     icon: <Layers className="h-4 w-4 mr-2" />,
-  },
-  {
-    title: "Slip notes",
-    href: "slip_notes",
-    icon: <Scroll className="h-4 w-4 mr-2" />,
-  },
-  {
-    title: "Billing",
-    href: "billing",
-    icon: <Coins className="h-4 w-4 mr-2" />,
   },
   {
     title: "Settings",
@@ -47,8 +32,8 @@ export const Sidebar = () => {
               "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-300"
           )}
         >
-          <Clock className="h-4 w-4 mr-2" />
-          <p className="text-sm">Recents</p>
+          <Scroll className="h-4 w-4 mr-2" />
+          <p className="text-sm">Slips</p>
         </div>
       </Link>
       {sidebarOptions.map((option) => (

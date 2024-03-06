@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEventHandler, forwardRef } from "react";
+import { forwardRef } from "react";
 import { useFormStatus } from "react-dom";
 
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 import { FormErrors } from "./form-errors";
+import { Textarea } from "../ui/textarea";
 
 interface FormInputProps {
   id: string;
@@ -22,7 +23,7 @@ interface FormInputProps {
   onBlur?: () => void;
 }
 
-export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
+export const FormTextArea = forwardRef<HTMLTextAreaElement, FormInputProps>(
   (
     {
       id,
@@ -51,7 +52,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
               {label}
             </Label>
           ) : null}
-          <Input
+          <Textarea
             onBlur={onBlur}
             defaultValue={defaultValue}
             ref={ref}
@@ -59,10 +60,9 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
             name={id}
             id={id}
             placeholder={placeholder}
-            type={type}
             disabled={pending || disabled}
             className={cn(
-              "text-sm px-2 py-1 h-7 focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none",
+              "text-sm px-2 py-1 h-7 focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none max-h-40",
               className
             )}
             aria-describedby={`${id}-error`}
@@ -74,4 +74,4 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
   }
 );
 
-FormInput.displayName = "FormInput";
+FormTextArea.displayName = "FormTextArea";
