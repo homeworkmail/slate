@@ -6,6 +6,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
 import { db } from "@/lib/db";
 import { auth, redirectToSignIn } from "@clerk/nextjs";
 import { ChevronsLeftRight, Layers2, PlusCircle } from "lucide-react";
@@ -74,4 +75,8 @@ export const WorkspaceSwitcher = async ({ wsId }: WorkspaceSwitcherProps) => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
+};
+
+WorkspaceSwitcher.Skeleton = function SkeletonWorkspaceSwitcher() {
+  return <Skeleton className="w-48 h-10 rounded-md" />;
 };

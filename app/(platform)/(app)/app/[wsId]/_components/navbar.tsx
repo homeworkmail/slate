@@ -2,6 +2,7 @@ import { Logo } from "@/components/logo";
 import { ModeToggle } from "@/components/mode-toggle";
 import { UserButton } from "@clerk/nextjs";
 import { WorkspaceSwitcher } from "./workspace-switcher";
+import { Suspense } from "react";
 
 export const Navbar = ({ wsId }: { wsId: string }) => {
   return (
@@ -12,7 +13,9 @@ export const Navbar = ({ wsId }: { wsId: string }) => {
           <span className="text-4xl font-light text-zinc-300 dark:text-zinc-700">
             /
           </span>
-          <WorkspaceSwitcher wsId={wsId} />
+          <Suspense fallback={<WorkspaceSwitcher.Skeleton />}>
+            <WorkspaceSwitcher wsId={wsId} />
+          </Suspense>
         </div>
         <div className="flex items-center gap-x-4">
           <ModeToggle />

@@ -9,6 +9,10 @@ async function WorkspaceIdPage({ params }: { params: { wsId: string } }) {
     where: {
       workspaceId: params.wsId,
     },
+    select: {
+      id: true,
+      type: true,
+    },
   });
 
   return (
@@ -28,7 +32,7 @@ async function WorkspaceIdPage({ params }: { params: { wsId: string } }) {
                 <p>Add slip</p>
               </div>
             </Link>
-            {slips?.map((slip) => (
+            {slips.map((slip) => (
               <div
                 key={slip.id}
                 className="dark:bg-zinc-800 bg-zinc-100 h-32 gap-2 rounded-md border dark:border-zinc-700 border-zinc-300 p-2 text-sm flex items-center justify-center text-zinc-500 font-medium cursor-pointer dark:hover:border-zinc-500 hover:border-zinc-300 dark:hover:text-zinc-300 hover:text-zinc-900 transition-all"
