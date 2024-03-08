@@ -1,11 +1,14 @@
 "use server";
 
 import { auth } from "@clerk/nextjs";
-import { InputType, ReturnType } from "./types";
-import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+
+import { db } from "@/lib/db";
 import { createSafeAction } from "@/lib/create-safe-action";
-import { CreateSlipSchema } from "./schema";
+
+import { DeleteSlipSchema } from "./schema";
+import { InputType, ReturnType } from "./types";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId } = auth();
@@ -16,26 +19,19 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { title, content, type, workspaceId, reference } = data;
+  const { id } = data;
 
   let slip;
 
   try {
-    slip = await db.slip.create({
-      data: {
-        content,
-        type,
-        workspaceId,
-        reference,
-        title,
-        userId,
+    slip = await db.slip.delete({
+      where: {
+        id,
       },
     });
   } catch (error) {
-    console.log(error);
-
     return {
-      error: "Failed to create slip",
+      error: "Failed to delete.",
     };
   }
 
@@ -43,4 +39,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: slip };
 };
 
-export const createSlip = createSafeAction(CreateSlipSchema, handler);
+export const deleteSlip = createSafeAction(DeleteSlipSchema, handler);

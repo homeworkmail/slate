@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SlipModal } from "../modals/slip-modal";
 
 export const ModalProvider = () => {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -14,9 +13,5 @@ export const ModalProvider = () => {
     return null;
   }
 
-  return (
-    <>
-      <SlipModal />
-    </>
-  );
+  return <></>;
 };

@@ -2,14 +2,9 @@ import { z } from "zod";
 
 export const CreateSlipSchema = z.object({
   title: z.optional(
-    z
-      .string({
-        required_error: "Title is required",
-        invalid_type_error: "Title is required",
-      })
-      .min(3, {
-        message: "Title is too short.",
-      })
+    z.string({
+      invalid_type_error: "Title is required",
+    })
   ),
 
   content: z
@@ -22,14 +17,9 @@ export const CreateSlipSchema = z.object({
     }),
 
   reference: z.optional(
-    z
-      .string({
-        required_error: "Reference is required",
-        invalid_type_error: "Reference is required",
-      })
-      .min(3, {
-        message: "Reference is too short.",
-      })
+    z.string({
+      invalid_type_error: "Reference is required",
+    })
   ),
 
   type: z.enum(["THOUGHT", "MEDIA", "BOOK"]),

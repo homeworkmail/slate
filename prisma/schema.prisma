@@ -30,6 +30,8 @@ model Slip {
   reference String?  @db.Text
   type      SlipType
 
+  userId String
+
   workspaceId String
   workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 

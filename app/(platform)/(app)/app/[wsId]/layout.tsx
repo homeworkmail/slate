@@ -32,7 +32,7 @@ function WorkspaceIdLayout({
   params: { wsId: string };
 }) {
   return (
-    <div>
+    <div className="h-full">
       <Navbar wsId={wsId} />
       {children}
       <FootNavbar wsId={wsId} />
