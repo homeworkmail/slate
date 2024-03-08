@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { db } from "@/lib/db";
 import { auth, redirectToSignIn } from "@clerk/nextjs";
