@@ -42,7 +42,7 @@ function MarketingPage() {
           <p className="hover:text-amber-900 hover:bg-amber-100 dark:hover:text-amber-100 dark:hover:bg-amber-700 p-4 rounded-full cursor-default transition-all">
             Blogs
           </p>
-          <p className="hover:text-rose-900 hover:bg-rose-100 dark:hover:text-rose-100 dark:hover:bg-rose-700 p-4 rounded-full cursor-default transition-all">
+          <p className="hover:text-rose-900 shrink-0 hover:bg-rose-100 dark:hover:text-rose-100 dark:hover:bg-rose-700 p-4 rounded-full cursor-default transition-all">
             Todo Lists
           </p>
         </div>

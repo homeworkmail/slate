@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar } from "./_components/navbar";
-import { Guide } from "./_components/guide";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
+import { FootNavbar } from "./_components/foot-navbar";
 
 export async function generateMetadata({
   params,
@@ -35,7 +35,7 @@ function WorkspaceIdLayout({
     <div>
       <Navbar wsId={wsId} />
       {children}
-      <Guide />
+      <FootNavbar wsId={wsId} />
     </div>
   );
 }

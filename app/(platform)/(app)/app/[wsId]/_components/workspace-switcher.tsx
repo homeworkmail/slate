@@ -42,7 +42,7 @@ export const WorkspaceSwitcher = async ({ wsId }: WorkspaceSwitcherProps) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none">
+      <DropdownMenuTrigger className="hidden md:block focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none">
         <div className="p-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 flex items-center gap-x-4 text-zinc-700 dark:text-zinc-300">
           <div className="flex items-center">
             <Layers2 className="h-4 w-4 mr-2" />
@@ -78,5 +78,5 @@ export const WorkspaceSwitcher = async ({ wsId }: WorkspaceSwitcherProps) => {
 };
 
 WorkspaceSwitcher.Skeleton = function SkeletonWorkspaceSwitcher() {
-  return <Skeleton className="w-48 h-10 rounded-md" />;
+  return <Skeleton className="hidden md:block w-48 h-10 rounded-md" />;
 };
