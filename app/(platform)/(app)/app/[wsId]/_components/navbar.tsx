@@ -15,7 +15,7 @@ import { SheetWorkspaceSwitcher } from "./sheet-workspace-selector";
 
 export const Navbar = ({ wsId }: { wsId: string }) => {
   return (
-    <div className="border-b-[1px] dark:border-zinc-700 border-zinc-300">
+    <div className="bg-white fixed top-0 w-full border-b-[1px] dark:border-zinc-700 border-zinc-300">
       <div className="max-w-[1200px] mx-auto md:py-6 py-4 flex items-center justify-between px-4 transition-all">
         <div className="flex items-center gap-x-4">
           <Sheet>

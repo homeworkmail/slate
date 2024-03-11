@@ -1,17 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SlipModal } from "../modals/slip-modal";
 
 export const ModalProvider = () => {
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
-  if (!mounted) {
+  if (!isMounted) {
     return null;
   }
 
-  return <></>;
+  return (
+    <>
+      <SlipModal />
+    </>
+  );
 };

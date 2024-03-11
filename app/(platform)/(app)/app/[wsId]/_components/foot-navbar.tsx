@@ -8,7 +8,7 @@ export const FootNavbar = (params: { wsId: string }) => {
   const pathname = usePathname();
 
   return (
-    <div className="md:hidden border-t-[1px] border-zinc-300 fixed bottom-0 w-full">
+    <div className="md:hidden border-t-[1px] border-zinc-300 fixed bottom-0 w-full bg-white">
       <div className="max-w-[1200px] mx-auto px-4 py-2 flex items-center justify-between transition-all">
         <Link href={`/app/${params.wsId}`}>
           <div className="flex flex-col items-center gap-1 text-zinc-600 transition-all">

@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from "react";
+import { ChangeEvent, forwardRef } from "react";
 import { useFormStatus } from "react-dom";
 
 import { cn } from "@/lib/utils";

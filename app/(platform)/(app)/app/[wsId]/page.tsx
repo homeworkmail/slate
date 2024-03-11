@@ -5,18 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { SlipBox } from "./_components/slip-box";
-import { clerkClient } from "@clerk/nextjs";
 
 async function WorkspaceIdPage({ params }: { params: { wsId: string } }) {
   const slips = await db.slip.findMany({
     where: {
       workspaceId: params.wsId,
     },
+    orderBy: {
+      updatedAt: "desc",
+    },
   });
 
   return (
     <div className="max-w-[1200px] mx-auto space-y-4 px-4 mt-6">
-      <div className="md:grid md:grid-cols-12 md:gap-2">
+      <div className="md:grid md:grid-cols-12 md:gap-2 md:py-24 py-14">
         <div className="md:col-span-2 col-span-0">
           <Sidebar />
         </div>
@@ -33,17 +35,8 @@ async function WorkspaceIdPage({ params }: { params: { wsId: string } }) {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 my-4">
-            {slips.map(async (slip) => {
-              const user = await clerkClient.users.getUser(slip.userId);
-
-              return (
-                <SlipBox
-                  key={slip.id}
-                  slip={slip}
-                  user={user.firstName as string}
-                  image={user.imageUrl}
-                />
-              );
+            {slips.map((slip) => {
+              return <SlipBox key={slip.id} slip={slip} />;
             })}
           </div>
         </div>
