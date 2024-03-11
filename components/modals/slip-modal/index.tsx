@@ -26,7 +26,7 @@ export const SlipModal = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className="max-h-[500px] overflow-y-scroll scrollbar-hide">
         <DialogHeader>
           <DialogTitle className="text-sm">
             {slip?.title || "Slip Title"}
