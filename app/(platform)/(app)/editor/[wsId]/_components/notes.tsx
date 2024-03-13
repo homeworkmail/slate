@@ -20,6 +20,7 @@ export const NotesList = ({
       <div>
         {notes.map((note) => (
           <div
+            key={note.noteId}
             className={cn(
               "p-2 rounded-md cursor-pointer border border-white",
               pathname.split("/")[3] === note.noteId && "bg-zinc-100 border"

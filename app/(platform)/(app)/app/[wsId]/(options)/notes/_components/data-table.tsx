@@ -38,7 +38,7 @@ export const DataTable = ({ data }: DataTableProps) => {
             </TableCell>
             <TableCell>
               {note.tags.map((tag) => (
-                <p>{tag.Tag?.name}</p>
+                <p key={tag.id}>{tag.Tag?.name}</p>
               ))}
             </TableCell>
             <TableCell className="text-right">
