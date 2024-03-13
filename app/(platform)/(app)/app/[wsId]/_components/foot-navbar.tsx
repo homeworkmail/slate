@@ -38,7 +38,7 @@ export const FootNavbar = (params: { wsId: string }) => {
           </div>
         </Link>
 
-        <Link href={`/editor`} target="_blank">
+        <Link href={`/editor/${params.wsId}`} target="_blank">
           <div className="flex flex-col items-center gap-1 text-zinc-600">
             <Pencil className="h-5 w-5" />
             <p
