@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blocknote/core": "0.9.4",
+    "@blocknote/react": "0.9.4",
     "@clerk/nextjs": "^4.29.7",
     "@clerk/themes": "^1.7.9",
     "@editorjs/editorjs": "^2.29.0",
@@ -26,11 +28,13 @@
     "@tanstack/react-table": "^8.13.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cmdk": "^1.0.0",
     "date-fns": "^3.3.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.338.0",
     "moment": "^2.30.1",
     "next": "14.1.0",
+    "next-theme": "^0.1.5",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
@@ -38,6 +42,7 @@
     "sonner": "^1.4.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
+    "usehooks-ts": "^3.0.1",
     "zod": "^3.22.4",
     "zustand": "^4.5.2"
   },

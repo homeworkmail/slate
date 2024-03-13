@@ -36,7 +36,7 @@ export const Sidebar = () => {
         </div>
       </Link>
 
-      <Link href={`/editor`} target="_blank">
+      <Link href={`/editor/${params.wsId}`} target="_blank">
         <div
           className={cn(
             "flex items-center gap-2 mb-2 p-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer text-zinc-600 dark:text-zinc-400",

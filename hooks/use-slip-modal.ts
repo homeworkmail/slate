@@ -1,16 +1,19 @@
-import { Slip } from "@prisma/client";
+import { Note, Slip } from "@prisma/client";
 import { create } from "zustand";
 
 type SlipModalStore = {
-  slip?: Slip;
+  slip?: { Note: Note[] } & Slip;
+  id?: string;
   isOpen: boolean;
-  onOpen: (slip: Slip) => void;
+  onOpen: (slip: { Note: Note[] } & Slip, id: string) => void;
   onClose: () => void;
 };
 
 export const useSlipModal = create<SlipModalStore>((set) => ({
   slip: undefined,
+  id: undefined,
   isOpen: false,
-  onOpen: (slip: Slip) => set({ isOpen: true, slip }),
-  onClose: () => set({ isOpen: false, slip: undefined }),
+  onOpen: (slip: { Note: Note[] } & Slip, id: string) =>
+    set({ isOpen: true, slip, id }),
+  onClose: () => set({ isOpen: false, slip: undefined, id: undefined }),
 }));

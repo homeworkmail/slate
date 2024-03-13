@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useAction } from "@/hooks/use-action";
-import { Slip } from "@prisma/client";
+import { Note, Slip } from "@prisma/client";
 import {
   BookOpen,
   Laptop2,
@@ -18,13 +18,13 @@ import {
   Pen,
   Trash,
 } from "lucide-react";
-import { redirect, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useSlipModal } from "@/hooks/use-slip-modal";
 import Link from "next/link";
 
 interface SlipBoxProps {
-  slip: Slip;
+  slip: { Note: Note[] } & Slip;
 }
 
 export const SlipBox = ({ slip }: SlipBoxProps) => {
@@ -50,9 +50,9 @@ export const SlipBox = ({ slip }: SlipBoxProps) => {
   return (
     <div
       className="border border-zinc-300 rounded-md cursor-pointer"
-      onClick={() => onOpen(slip)}
+      onClick={() => onOpen(slip, slip.workspaceId)}
     >
-      <div className="flex items-center gap-2 p-2">
+      <div className="flex  items-center gap-2 p-2">
         {slip.type === "BOOK" ? (
           <>
             <div className="w-fit p-2">
@@ -130,7 +130,32 @@ export const SlipBox = ({ slip }: SlipBoxProps) => {
           </PopoverContent>
         </Popover>
       </div>
-      <div className="p-2 flex items-center gap-2">
+      <div>
+        {slip.Note.length > 0 ? (
+          slip.Note.map((note) => (
+            <Link
+              key={note.id}
+              href={`/editor/${note.workspaceId}/${note.id}`}
+              target="_blank"
+            >
+              <span
+                onClick={(e) => e.stopPropagation()}
+                className="text-xs bg-zinc-100 p-2 mx-2 w-fit rounded-full hover:underline"
+              >
+                Go to note
+              </span>
+            </Link>
+          ))
+        ) : (
+          <span
+            onClick={(e) => e.stopPropagation()}
+            className="text-xs bg-zinc-100 p-2 mx-2 w-fit rounded-full hover:underline"
+          >
+            No notes available
+          </span>
+        )}
+      </div>
+      <div className="p-2 space-y-2">
         <p className="text-xs">
           {moment(slip.updatedAt, "YYYYMMDD").fromNow()}
         </p>

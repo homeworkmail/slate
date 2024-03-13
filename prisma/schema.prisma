@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -21,6 +22,7 @@ model Workspace {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Slip      Slip[]
+  Note      Note[]
 }
 
 model Slip {
@@ -37,10 +39,40 @@ model Slip {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Note      Note[]
 
   @@index([workspaceId])
 }
 
 model Note {
-  id String @id @default(uuid())
+  id      String  @id @default(uuid())
+  title   String  @default("Untitled") @db.Text
+  content String? @db.Text
+
+  tags NoteTags[]
+
+  slipId String?
+  slip   Slip?   @relation(fields: [slipId], references: [id])
+
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slipId, workspaceId])
+}
+
+model NoteTags {
+  id     String  @id @default(uuid())
+  noteId String?
+  Note   Note?   @relation(fields: [noteId], references: [id])
+  Tag    Tag?    @relation(fields: [tagId], references: [id])
+  tagId  String?
+}
+
+model Tag {
+  id    String     @id @default(uuid())
+  name  String     @unique
+  notes NoteTags[]
 }

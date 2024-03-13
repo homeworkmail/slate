@@ -1,8 +1,9 @@
 import React from "react";
 import { Navbar } from "./_components/navbar";
 import { db } from "@/lib/db";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { FootNavbar } from "./_components/foot-navbar";
+import { auth, useUser } from "@clerk/nextjs";
 
 export async function generateMetadata({
   params,
@@ -24,17 +25,33 @@ export async function generateMetadata({
   };
 }
 
-function WorkspaceIdLayout({
+async function WorkspaceIdLayout({
   children,
   params: { wsId },
 }: {
   children: React.ReactNode;
   params: { wsId: string };
 }) {
+  const workspace = await db.workspace.findUnique({
+    where: {
+      id: wsId,
+    },
+  });
+
+  const { userId } = auth();
+
+  if (workspace?.userId !== userId) {
+    return notFound();
+  }
+
+  if (!workspace) {
+    redirect("/app/create-workspace");
+  }
+
   return (
     <div className="h-full">
       <Navbar wsId={wsId} />
-      {children}
+      <div className="md:py-24 py-14 mt-6">{children}</div>
       <FootNavbar wsId={wsId} />
     </div>
   );

@@ -14,11 +14,14 @@ async function WorkspaceIdPage({ params }: { params: { wsId: string } }) {
     orderBy: {
       updatedAt: "desc",
     },
+    include: {
+      Note: true,
+    },
   });
 
   return (
-    <div className="max-w-[1200px] mx-auto space-y-4 px-4 mt-6">
-      <div className="md:grid md:grid-cols-12 md:gap-2 md:py-24 py-14">
+    <div className="max-w-[1200px] mx-auto space-y-4 px-4">
+      <div className="md:grid md:grid-cols-12 md:gap-2">
         <div className="md:col-span-2 col-span-0">
           <Sidebar />
         </div>

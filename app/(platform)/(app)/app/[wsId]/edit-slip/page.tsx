@@ -88,7 +88,7 @@ function AddSlipPage({ params }: { params: { wsId: string } }) {
   };
 
   return (
-    <div className="mt-6 px-4 space-y-4 max-w-[714px] mx-auto md:py-24 py-14">
+    <div className="px-4 space-y-4 max-w-[714px] mx-auto">
       <div className="border-b border-zinc-300 pb-2">
         <div>
           <h1 className="text-lg font-bold text-zinc-900">

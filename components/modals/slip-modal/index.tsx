@@ -1,9 +1,9 @@
 "use client";
 
+import { createNote } from "@/actions/create-note";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -19,10 +19,38 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useAction } from "@/hooks/use-action";
 import { useSlipModal } from "@/hooks/use-slip-modal";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export const SlipModal = () => {
-  const { isOpen, onClose, slip } = useSlipModal();
+  const { isOpen, onClose, slip, id } = useSlipModal();
+  const router = useRouter();
+
+  const { execute, isLoading } = useAction(createNote, {
+    onSuccess: (data) => {
+      toast.success(`Note created`);
+      router.push(`/editor/${data.workspaceId}/${data.id}`);
+    },
+    onError: (error) => {
+      toast.error(error);
+    },
+  });
+
+  const makeNote = () => {
+    if (slip?.Note[0]?.id) {
+    } else {
+      execute({
+        workspaceId: id as string,
+        content: JSON.stringify([]),
+        slipId: slip?.id,
+        title: slip?.title || slip?.content,
+      });
+
+      onClose();
+    }
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -55,9 +83,15 @@ export const SlipModal = () => {
             </Table>
           )}
         </DialogHeader>
-        <DialogFooter>
-          <Button className="w-full">Make note</Button>
-        </DialogFooter>
+        {!!slip?.Note[0]?.id ? (
+          <></>
+        ) : (
+          <DialogFooter>
+            <Button disabled={isLoading} onClick={makeNote} className="w-full">
+              Make note
+            </Button>
+          </DialogFooter>
+        )}
       </DialogContent>
     </Dialog>
   );
