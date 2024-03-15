@@ -3,7 +3,7 @@ import { Navbar } from "./_components/navbar";
 import { db } from "@/lib/db";
 import { notFound, redirect } from "next/navigation";
 import { FootNavbar } from "./_components/foot-navbar";
-import { auth, useUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 
 export async function generateMetadata({
   params,
