@@ -9,11 +9,12 @@ function page() {
       <Separator />
       <div className="space-y-4 pt-4">
         <div>
-          Slate ("us", "we", or "our") operates the website{" "}
+          Slate (&apos;us&apos;, &apos;we&apos;, or &apos;our&apos;) operates
+          the website{" "}
           <Link href="/" className="font-medium underline italic">
             https://slate.homeworkmail.com
           </Link>{" "}
-          (the "Service").
+          (the &apos;Service&apos;).
         </div>
         <div>
           <div className="font-semibold pb-2">
@@ -32,7 +33,7 @@ function page() {
           <div className="font-semibold pb-2">2. Data Collection Methods:</div>
           <div className="pl-8">
             We may use web cookies to collect non-personal information about
-            users' interactions with the Service.
+            users&apos; interactions with the Service.
           </div>
         </div>
         <div>
@@ -43,7 +44,7 @@ function page() {
           </div>
         </div>
         <div>
-          <div className="font-semibold pb-2">4. Children's Privacy:</div>
+          <div className="font-semibold pb-2">4. Children&apos;s Privacy:</div>
           <div className="pl-8">
             We do not knowingly collect any personal information from children
             under the age of 13. If you are a parent or guardian and you are

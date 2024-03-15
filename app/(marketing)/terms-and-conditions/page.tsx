@@ -11,11 +11,11 @@ function page() {
       <Separator />
       <div className="space-y-4 pt-4">
         <div>
-          Slate ("us", "we", or "our") operates the website{" "}
+          Slate (&apos;us&apos;, &apos;we&apos;, or &apos;our&apos;) operates the website{" "}
           <Link href="/" className="font-medium underline italic">
             https://slate.homeworkmail.com
           </Link>{" "}
-          (the "Service").
+          (the &apos;Service&apos;).
         </div>
         <div>
           By accessing or using the Service, you agree to be bound by these
@@ -26,7 +26,7 @@ function page() {
           <div className="font-semibold pb-2">1. Access to the Service:</div>
           <div className="pl-8">
             <li>
-              Access to ZenVoice's software is granted to the user upon a
+              Access to ZenVoice&apos;s software is granted to the user upon a
               one-time payment, providing unlimited access to the product. This
               includes the ability to connect multiple Stripe accounts (1
               account for the 1st Tier plan, and up to 100 for the 2nd Tier
@@ -55,7 +55,7 @@ function page() {
           <div className="font-semibold pb-2">3. Non-personal Data :</div>
           <div className="pl-8">
             We may use web cookies to collect non-personal information about
-            users' interactions with the Service.
+            users&apos; interactions with the Service.
           </div>
         </div>
         <div>
