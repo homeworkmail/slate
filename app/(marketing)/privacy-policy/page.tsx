@@ -65,7 +65,7 @@ function page() {
           For any questions or concerns regarding this Privacy Policy, please
           contact us at homeworkmailorg@gmail.com.
         </div>
-        <div className="font-semibold">Thank you for using ZenVoice!</div>
+        <div className="font-semibold">Thank you for using Slate!</div>
       </div>
     </div>
   );
