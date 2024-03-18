@@ -1,4 +1,4 @@
 <svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1080" height="1080" rx="150" fill="#09090B"/>
-<rect x="150" y="150" width="195" height="195" rx="97.5" fill="#D9D9D9"/>
+<rect width="1080" height="1080" rx="150" fill="white"/>
+<rect x="150" y="150" width="195" height="195" rx="97.5" fill="#09090B"/>
 </svg>
